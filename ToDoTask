@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>ToDoTask</title>
+    <link href="todotask.css" rel="stylesheet">
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<!-- jQuery Code executes on Date Format option ----->
+<script src="script.js"></script>
+</head>
+<title>ToDoTask</title>
+<body>
+    <div name="form" class="formdesign" id="form">
+        <div>
+            <h3 class="header">ToDo Task APP</h3>
+        </div>
+      <div>
+           <div class="col1"> Enter Task :</div>
+           <span class="col2"><input type="text" id="Task" placeholder="Please Enter your Task" /></span>
+      </div>
+
+      <div>
+            <div class="col1">Enter Description :</div>
+            <div class="col2"><textarea name="description" value="" placeholder="Please Enter your desciption" id="description"></textarea></div>
+      </div>
+
+      <div>
+          <div class="col1">Status :</div>
+          <div class="col2"><select name='status' id="status">
+              <option value="pending">Pending</option>
+              <option value="inprogress">Inprogress</option>
+              <!-- <option value="completed">Completed</option> -->
+          </select></div>
+      </div>
+      <div>
+            <div class="col1">Task Start Date :</div>
+            <div class="col2"><input name="starttask" type="date" id="datepicker"></div>
+      </div>
+
+      <div>
+            <div class="col1">Task End Date:</div>
+            <div class="col2"><input name="endtask" type="date" value="" id="datepickerend"></div>
+      </div>
+
+      <div>
+            <div class="button"><input name="submit" type="submit" value="Add Task" id="submit" onclick="operation()">
+             <!-- <input name="reset" type="submit" value="Reset" id="reset" onclick="clear()">--></div>
+      </div>
+
+  </div>
+
+  <div>
+
+       <div id="display" class="col3"></div>
+
+  </div>
+
+
+</body>
+</html>

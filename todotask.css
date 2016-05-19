@@ -1,0 +1,59 @@
+.formdesign
+{
+  margin: 0 auto;
+      width: 500px;
+      /* To see the outline of the form */
+      padding: 1em;
+      border: 1px solid #CCC;
+      border-radius: 1em;
+      margin-top: 126px;
+      /*background-color: #63868C;*/
+}
+
+.col1
+{
+
+ width: 40%;
+ display:  inline-block;;
+}
+
+.col2
+{
+ width: 59%;
+ display: inline-block;
+ margin-top: 20px;
+}
+
+
+textarea {
+    /* To make sure that all text fields have the same font settings
+       By default, textareas have a monospace font */
+    font: 1em sans-serif;
+
+    /* To give the same size to all text field */
+    width: 300px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /* To harmonize the look & feel of text field border */
+    border: 1px solid #999;
+}
+
+.button {
+    margin-left: 171px;
+    margin-top: 42px;
+
+}
+
+.header
+{
+
+margin-left: 157px;
+
+}
+
+.col3{
+     margin-top: 70px;
+     margin-left:212px;
+
+}
