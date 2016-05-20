@@ -25,11 +25,18 @@ function operation(){
 
           var task = collection[i].task = task;
           var description = collection[i].description = description;
+          if(status === 'completed'){
           var status = collection[i].status = status;
+           document.getElementById('statuschange').disabled = true;
+        }else{
+          var status = collection[i].status = status;
+        }
           var startdate = collection[i].startdate = startdate;
           var enddate = collection[i].enddate = enddate;
           temp ="";
           structure();
+          document.getElementById('status').disabled = false;
+
       }
 
      }
@@ -40,7 +47,11 @@ function operation(){
            var id = Math.random();
            var task = document.getElementById('Task').value;
            var description = document.getElementById('description').value;
+           if(document.getElementById('status').value==='completed'){
            var status = document.getElementById('status').value;
+               document.getElementById('status').disabled = true;
+           }else {
+           var status = document.getElementById('status').value;}
            var startdate = document.getElementById('datepicker').value;
            var enddate = document.getElementById('datepickerend').value;
 
@@ -55,9 +66,10 @@ function operation(){
 
     collection.push(details);
          structure();
+         document.getElementById('status').disabled = false;
 
     }
-    }
+   }
   }
 
 
@@ -80,21 +92,23 @@ function structure(){
             html+="<td>"+collection[i].task+"</td>";
             html+="<td>"+collection[i].description+"</td>";
               //  html+="<td>"+collection[i].status+"</td>";
-            html+="<td>"+'<select name="status" id="status">';
+            html+="<td>"+'<select name="status" id="statuschange" onChange="fixcompletedstatus('+collection[i].id+')">';
               if(collection[i].status==='pending'){
                   html+= '<option value="pending">'+collection[i].status+'</option>';
                   html+='<option value="inprogress">Inprogress</option>';
-                  html+='<option value="completed" disabled>Completed</option>';
-              }else {
+                  html+='<option value="completed">Completed</option>';
+              }else if(collection[i].status==='inprogress'){
                   html+= '<option value="inprogress">'+collection[i].status+'</option>';
                   html+='<option value="pending">Pending</option>';
-                  html+='<option value="completed"  disabled>Completed</option>';
-                }
-              // }else{
-              //     html+= '<option value="completed">'+collection[i].status+'</option>';
-              //     html+='<option value="pending">Pending</option>';
-              //     html+='<option value="inprogress">Inprogress</option>';
-              // }
+                  html+='<option value="completed">Completed</option>';
+               }else{
+                   if(collection[i].status==='completed'){
+                     html+= '<option value="completed">'+collection[i].status+'</option>';
+                     //document.getElementById('statuschange').disabled = true;
+                    // html+='<option value="pending">Pending</option>';
+                    // html+='<option value="inprogress">Inprogress</option>';
+                   }
+               }
             html+= '</select>'+"</td>";
             html+="<td>"+collection[i].startdate+"</td>";
             html+="<td>"+collection[i].enddate+"</td>";
@@ -108,6 +122,9 @@ function structure(){
    }
   html+="</table>";
   document.getElementById("display").innerHTML = html;
+  // if(document.getElementById('statuschange').value==='completed'){
+  // document.getElementById('statuschange').disabled = true;
+  // }
   clear();
 
 }
@@ -118,6 +135,7 @@ function clear(){
        document.getElementById("Task").value = '';
        document.getElementById("description").value = '';
        document.getElementById("datepicker").value = '';
+       document.getElementById("status").value = 'pending';
        document.getElementById("datepickerend").value = '';
 
   }
@@ -168,7 +186,14 @@ function ChangeValue (id) {
 
           document.getElementById('Task').value= task;
           document.getElementById('description').value= description;
-          document.getElementById('status').value= status;
+          if(document.getElementById('statuschange').value ==='completed'){
+          document.getElementById('statuschange').value= status;
+          document.getElementById('statuschange').disabled = true;
+          document.getElementById('status').value = status;
+          document.getElementById('status').disabled = true;
+          }else{
+            document.getElementById('statuschange').value = status;
+          }
           document.getElementById('datepicker').value= startdate;
           document.getElementById('datepickerend').value= enddate;
 
@@ -213,3 +238,83 @@ function validation(){
             return flags
 
 }
+
+function fixcompletedstatus(id){
+
+   statuschange(id);
+
+  console.log(document.getElementById('statuschange').value);
+
+            if(document.getElementById('statuschange').value==='completed'){
+
+              document.getElementById('statuschange').disabled = true;
+            }else{
+            document.getElementById('statuschange').disabled = false;
+
+        }
+
+    }
+
+
+    function statuschange(id){
+
+      temp = id;
+      console.log(temp);
+
+       var newstatus = document.getElementById('statuschange').value;
+       console.log(newstatus);
+
+      for(var i=0; i<collection.length; i++){
+        console.log(collection[i].id);
+      if(collection[i].id === id){
+        console.log("inside of status");
+
+            // var task = collection[i].task;
+            // var description = collection[i].description;
+            // document.getElementById('statuschange').value= newstatus;
+            // var startdate = collection[i].startdate;
+            // var enddate = collection[i].enddate;
+
+            document.getElementById('Task').value= collection[i].task;
+            document.getElementById('description').value= collection[i].description;
+            if(newstatus ==='completed'){
+            document.getElementById('statuschange').value= newstatus;
+            document.getElementById('statuschange').disabled= true;
+            document.getElementById('status').value= newstatus;
+            document.getElementById('status').disabled = true;
+            }else{
+              console.log("inside else statment");
+            document.getElementById('statuschange').value = newstatus;
+            document.getElementById('status').value = newstatus;
+            }
+            document.getElementById('datepicker').value=  collection[i].startdate;
+            document.getElementById('datepickerend').value= collection[i].enddate;
+            operation();
+            //temp ="";
+
+
+            // document.getElementById('datepicker').value= startdate;
+            // document.getElementById('datepickerend').value= enddate;
+
+
+         //structure();
+         }else{
+          //  console.log("outside");
+        //  structure();
+      }
+      }
+  }
+
+  function fixstatus(){
+
+    console.log(document.getElementById('status').value);
+
+              if(document.getElementById('status').value==='completed'){
+
+                document.getElementById('status').disabled = true;
+              }else{
+              document.getElementById('status').disabled = false;
+
+          }
+
+      }
