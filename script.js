@@ -1,18 +1,18 @@
-// $(document).ready(function() {
-// // Datepicker Popups calender to Choose date.
-//       $(function() {
-//       $("#datepicker").datepicker();
-// });
-//       $(function() {
-//       $("#datepickerend").datepicker();
-// });
-// });
+$(document).ready(function() {
+// Datepicker Popups calender to Choose date.
+      $(function() {
+      $("#datepicker").datepicker();
+});
+      $(function() {
+      $("#datepickerend").datepicker();
+});
+});
 var collection =[];
 var temp = '';
 //console.log(collection.length);
 
 function operation(){
-      console.log(typeof(Storage));
+
     if(temp !== ""){
      for(var i=0; i<collection.length; i++){
         if(collection[i].id===temp){
@@ -233,6 +233,9 @@ function validation(){
                   alert("Please Enter the Startdate");
                   var flags = false;
 
+            }else if(startdate > enddate){
+               alert("Your Project End Date is greater Then start");
+               var flags = false;
             }else{
               var flags = true;
             }

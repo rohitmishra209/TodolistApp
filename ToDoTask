@@ -35,12 +35,12 @@
       </div>
       <div>
             <div class="col1">Task Start Date :</div>
-            <div class="col2"><input name="starttask" type="date" id="datepicker"></div>
+            <div class="col2"><input name="starttask" id="datepicker"></div>
       </div>
 
       <div>
             <div class="col1">Task End Date:</div>
-            <div class="col2"><input name="endtask" type="date" value="" id="datepickerend"></div>
+            <div class="col2"><input name="endtask"  value="" id="datepickerend"></div>
       </div>
 
       <div>
