@@ -143,11 +143,12 @@ function clear(){
 
 function DeleteItem(id){
 
-
-      if(collection.length === 0 ){
+console.log(collection.length);
+      if(collection.length === 1){
           console.log("reload");
           location.reload();
         }else{
+          console.log("inside for loop");
           for(var i=0; i<collection.length; i++){
         // var index = collection.indexOf(i);
         // console.log(index);
