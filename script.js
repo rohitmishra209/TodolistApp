@@ -12,7 +12,7 @@ var temp = '';
 //console.log(collection.length);
 
 function operation(){
-
+      console.log(typeof(Storage));
     if(temp !== ""){
      for(var i=0; i<collection.length; i++){
         if(collection[i].id===temp){
