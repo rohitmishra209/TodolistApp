@@ -215,26 +215,42 @@ function validation(){
     var status = document.getElementById('status').value;
     var startdate = document.getElementById('datepicker').value;
     var enddate = document.getElementById('datepickerend').value;
-
+    var task1 =  document.getElementById('Task');
 
             if(task === ''){
                 alert("Please Enter the task");
+                 document.getElementById('Task').focus();
+                 document.getElementById('Task').style.border = "2px solid #ff0000";
                 var flags = false;
 
             }else if(description ===""){
                 alert("Please Enter the Description");
+                document.getElementById('description').focus();
+                document.getElementById('description').style.border = "2px solid #ff0000";
                 var flags = false;
 
             }else if(status ===""){
                   alert("Please enter the Status");
+                  document.getElementById('status').focus();
+                  document.getElementById('status').style.border = "2px solid #ff0000";
                   var flags = false;
 
             }else if(startdate ===""){
                   alert("Please Enter the Startdate");
+                  document.getElementById('datepicker').focus();
+                  document.getElementById('datepicker').style.border = "2px solid #ff0000";
+                  var flags = false;
+
+            }else if(enddate ===""){
+                  alert("Please Enter the Startdate");
+                  document.getElementById('datepickerend').focus();
+                  document.getElementById('datepickerend').style.border = "3px solid #ff0000";
                   var flags = false;
 
             }else if(startdate > enddate){
                alert("Your Project End Date is greater Then start");
+               document.getElementById('datepickerend').focus();
+               document.getElementById('datepickerend').style.border = "3px solid #ff0000";
                var flags = false;
             }else{
               var flags = true;
